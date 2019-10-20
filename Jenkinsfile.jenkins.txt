@@ -1,0 +1,16 @@
+pipeline{
+     agent any
+     stages{
+         stage('clone-clean'){
+             steps{
+                 bat 'git clone https://github.com/Rane-sachi/MavenTest.git'
+                 bat 'mvn clean -f MavenTest'
+             }
+         }
+         stage('test'){
+             steps{
+                bat 'mvn test -f MavenTest'
+             }
+         }
+     }
+}
